@@ -1,0 +1,78 @@
+*
+{
+    box-sizing: border-box;
+}
+header
+{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.card, .grey-border-top, #timer
+{
+    width: 600px;
+    margin: auto;
+}
+.card > div
+{
+    margin-bottom: 30px;;
+}
+#title-card > div
+{
+    display: flex;
+    justify-content: center;
+}
+h1
+{
+    font-weight: bold;    
+    font-size: 180%;
+}
+#title-card h1
+{
+    text-transform: capitalize;
+}
+ul
+{
+    margin-top: -10px;
+}
+ul li
+{
+    margin-bottom: 5px;;
+    list-style: none;
+}
+button
+{
+    background-color: purple;
+    color: white;    
+}
+#start-quiz, label, #submit, #highscores-card h1,
+#go-back, #clear-highscores
+{
+    text-transform: capitalize;
+}
+button:hover
+{
+    cursor: pointer;
+    opacity: .7;
+}
+.grey-border-top
+{
+    border-top: 3px solid lightgrey;
+}
+.grey-border-top > span
+{
+    color: darkgrey;
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 150%;
+    text-transform: capitalize;
+}
+#timer
+{
+    display: flex;
+    justify-content: center;
+}
+h2
+{
+    font-size: 150%;
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="">View Highscores</a>
+        </div>        
+    </header>
+    <main>
+        <section class="card" id="title-card">
+            <div>
+                <h1></h1>
+            </div>            
+            <div id="card-instructions">
+                <p></p>            
+            </div>
+            <div>
+                <button id="start-quiz">start quiz</button>
+            </div>
+        </section>
+        <section class="card" id="question-card">
+            <div>
+                <h1></h1>
+            </div>  
+            <div>
+                <ul>
+                    <li><button class="button-choices" id="choiceOne"></button></li>
+                    <li><button class="button-choices" id="choiceTwo"></button></li>
+                    <li><button class="button-choices" id="choiceThree"></button></li>
+                    <li><button class="button-choices" id="choiceFour"></button></li>
+                </ul>
+            </div>                
+        </section>
+        <section class="card" id="all-done-card">
+            <div>
+                <h1></h1>
+            </div>  
+            <div>
+                <p id="your-score"></p>
+            </div>
+            <div id="input-container">
+                <label></label>
+                <input type="text" name="first-name" id="first-name" placeholder="Jane" />
+                <button id="submit"></button>
+            </div>        
+        </section>
+        <section class="card" id="highscores-card">
+            <div>
+                <h1></h1>
+            </div>
+            <div id="score-list"></div>  
+            <div>
+                <button id="go-back"></button>
+                <button id=clear-highscores></button>
+            </div>
+        </section>
+        
+        <div class="grey-border-top" id="correct-or-wrong">
+            <span></span>
+        </div> 
+        <div id="timer">
+            <h2></h2>
+        </div> 
+             
+    </main>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

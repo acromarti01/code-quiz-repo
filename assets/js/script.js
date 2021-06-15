@@ -61,48 +61,49 @@ viewHighscoresEl.addEventListener("click", function (event) {
     populateHighscoresCard();
     viewHighscoresIsClicked = true;
 });
-submitEl.addEventListener("click", function() {
-    createScoreList();     
+submitEl.addEventListener("click", function () {
+    createScoreList();
     hideElement(allDoneCardEl);
     showElement(highscoresCardEl);
-    populateHighscoresCard();    
+    populateHighscoresCard();
 });
-goBackEl.addEventListener("click", function() {
+goBackEl.addEventListener("click", function () {
     populateTitleCard();
 });
 clearHighscoresEl.addEventListener("click", function () {
     localStorage.removeItem("playersInfo");
-    scoreListEl.removeChild(scoreListEl.firstChild);    
+    scoreListEl.removeChild(scoreListEl.firstChild);
 });
 for (let i = 0; i < buttonChoicesEl.length; i++) {
     buttonChoicesEl[i].addEventListener("click", function () {
-        if (buttonCnt === 0) { 
+        if (buttonCnt === 0) {
             displayReuslt(buttonChoicesEl[i].textContent, questionOneInfo);
-            populateQuestionCard(questionTwoInfo);             
+            populateQuestionCard(questionTwoInfo);
         }
         else if (buttonCnt === 1) {
-            displayReuslt(buttonChoicesEl[i].textContent, questionTwoInfo);  
-            populateQuestionCard(questionThreeInfo);             
+            displayReuslt(buttonChoicesEl[i].textContent, questionTwoInfo);
+            populateQuestionCard(questionThreeInfo);
         }
-        else if (buttonCnt === 2) { 
-            displayReuslt(buttonChoicesEl[i].textContent, questionThreeInfo); 
-            populateQuestionCard(questionFourInfo); 
+        else if (buttonCnt === 2) {
+            displayReuslt(buttonChoicesEl[i].textContent, questionThreeInfo);
+            populateQuestionCard(questionFourInfo);
         }
-        else if (buttonCnt === 3) {  
-            displayReuslt(buttonChoicesEl[i].textContent, questionFourInfo); 
-            populateQuestionCard(questionFiveInfo);             
+        else if (buttonCnt === 3) {
+            displayReuslt(buttonChoicesEl[i].textContent, questionFourInfo);
+            populateQuestionCard(questionFiveInfo);
         }
         else {
             displayReuslt(buttonChoicesEl[i].textContent, questionFiveInfo);
-            populateAllDoneCard();              
-        } 
-        buttonCnt++;          
+            populateAllDoneCard();
+        }
+        buttonCnt++;
     });
 }
 //--------POPULATE CARD FUNCTIONS-------------//
 function populateTitleCard() {
     titleCardEl.querySelector("h1").textContent = "coding quiz challenge";
-    instructionsEl.querySelector("p").textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds."
+    viewHighscoresEl.textContent = "view highscores"
+    instructionsEl.querySelector("p").textContent = "Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by eight seconds."
     showElement(titleCardEl);
     showElement(startQuizEl);
     hideElement(questionCardEl)
@@ -110,7 +111,7 @@ function populateTitleCard() {
     hideElement(highscoresCardEl);
     hideElement(correctOrWrongEl);
     hideElement(timerEl.querySelector("h2"));
-    buttonCnt = 0;    
+    buttonCnt = 0;
     score = 0;
 }
 function populateQuestionCard(questionInfo) {
@@ -124,16 +125,16 @@ function populateAllDoneCard() {
     allDoneCardEl.querySelector("h1").textContent = "All done!"
     document.getElementById("your-score").textContent = `Your final score is ${score}`;
     allDoneCardEl.querySelector("label").textContent = "enter initials:";
-    allDoneCardEl.querySelector("button").textContent = "submit";    
+    allDoneCardEl.querySelector("button").textContent = "submit";
     hideElement(questionCardEl);
     showElement(allDoneCardEl);
 }
 function populateHighscoresCard() {
     highscoresCardEl.querySelector("h1").textContent = "highscores";
     document.getElementById("go-back").textContent = "go back";
-    document.getElementById("clear-highscores").textContent = "clear highscores"; 
+    document.getElementById("clear-highscores").textContent = "clear highscores";
     hideElement(titleCardEl);
-    hideElement(questionCardEl);   
+    hideElement(questionCardEl);
     hideElement(allDoneCardEl);
     showElement(highscoresCardEl);
 }
@@ -152,26 +153,26 @@ function setTimer() {
         if (secondsLeft < 0 || buttonCnt > 4) {
             h2El.textContent = "Timer: 0";
             clearInterval(timerInterval);
-            populateAllDoneCard();           
+            populateAllDoneCard();
         }
         if (viewHighscoresIsClicked) {
             h2El.textContent = "Timer: 0";
-            clearInterval(timerInterval);            
+            clearInterval(timerInterval);
         }
     }, 1000);
 }
 function displayReuslt(userChoice, questionInfo) {
-    showElement(correctOrWrongEl);    
+    showElement(correctOrWrongEl);
     userChoice = userChoice.substring(3); //Gets rid of extra characters, Ex: (1. string => string)
-    if (userChoice === questionInfo.answer) { 
+    if (userChoice === questionInfo.answer) {
         correctOrWrongEl.querySelector("span").textContent = "correct!";
-        score++; 
+        score++;
     }
-    else { 
-        correctOrWrongEl.querySelector("span").textContent = "wrong! -8 Seconds"; 
+    else {
+        correctOrWrongEl.querySelector("span").textContent = "wrong! -8 Seconds";
         userPickRightAnswer = false;
     }
-    let secondsLeft = 1;            
+    let secondsLeft = 1;
     let timerInterval = setInterval(function () {
         secondsLeft--;
         if (secondsLeft < 1) {
@@ -180,7 +181,7 @@ function displayReuslt(userChoice, questionInfo) {
         }
     }, 1000);
 }
-function createScoreList() {    
+function createScoreList() {
     const playerName = allDoneCardEl.querySelector("input").value;
     let olEl;
     let liEl;
@@ -205,15 +206,15 @@ function createScoreList() {
         scoreListEl.appendChild(olEl);
         for (let i = 0; i < playersInfo.names.length; i++) {
             liEl = document.createElement("li");
-            liEl.textContent = `${playersInfo.names[i]} - ${playersInfo.scores[i]}`;                
+            liEl.textContent = `${playersInfo.names[i]} - ${playersInfo.scores[i]}`;
             olEl.appendChild(liEl);
         }
-    }    
+    }
     localStorage.setItem("playersInfo", JSON.stringify(playersInfo));
     for (let i = 0; i < olEl.children.length; i++) {
         if (i % 2 === 0) { olEl.children[i].style.backgroundColor = "darkgrey"; }
-        else { olEl.children[i].style.backgroundColor = "lightgrey"; }        
-    }     
+        else { olEl.children[i].style.backgroundColor = "lightgrey"; }
+    }
 }
 function showElement(element) { element.style.display = "block"; }
 function hideElement(element) { element.style.display = "none"; }

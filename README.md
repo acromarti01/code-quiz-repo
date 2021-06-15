@@ -25,7 +25,7 @@ Code Quiz Project
 
 ## Link to Deployed Website
 
-https://acromarti01.github.io/password-generator-repo/
+https://acromarti01.github.io/code-quiz-repo
 
 
 

@@ -27,10 +27,6 @@ h1
     font-weight: bold;    
     font-size: 180%;
 }
-#title-card h1
-{
-    text-transform: capitalize;
-}
 ul
 {
     margin-top: -10px;
@@ -45,7 +41,7 @@ button
     background-color: purple;
     color: white;    
 }
-#start-quiz, label, #submit, #highscores-card h1,
+header a, #title-card h1, #start-quiz, label, #submit, #highscores-card h1,
 #go-back, #clear-highscores
 {
     text-transform: capitalize;

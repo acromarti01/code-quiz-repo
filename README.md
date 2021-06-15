@@ -9,7 +9,7 @@ Code Quiz Project
 
 - Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
 
-    I built the project to further develop my javascript skills using querySelectors, setInterval and clearInteral functions and localStorage. 
+    I built the project to further develop my javascript skills using querySelectors, setInterval and clearInterval functions and localStorage. 
 
 - What problem does it solve?
 

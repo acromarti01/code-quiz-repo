@@ -77,23 +77,23 @@ clearHighscoresEl.addEventListener("click", function () {
 for (let i = 0; i < buttonChoicesEl.length; i++) {
     buttonChoicesEl[i].addEventListener("click", function () {
         if (buttonCnt === 0) {
-            displayReuslt(buttonChoicesEl[i].textContent, questionOneInfo);
+            displayResult(buttonChoicesEl[i].textContent, questionOneInfo);
             populateQuestionCard(questionTwoInfo);
         }
         else if (buttonCnt === 1) {
-            displayReuslt(buttonChoicesEl[i].textContent, questionTwoInfo);
+            displayResult(buttonChoicesEl[i].textContent, questionTwoInfo);
             populateQuestionCard(questionThreeInfo);
         }
         else if (buttonCnt === 2) {
-            displayReuslt(buttonChoicesEl[i].textContent, questionThreeInfo);
+            displayResult(buttonChoicesEl[i].textContent, questionThreeInfo);
             populateQuestionCard(questionFourInfo);
         }
         else if (buttonCnt === 3) {
-            displayReuslt(buttonChoicesEl[i].textContent, questionFourInfo);
+            displayResult(buttonChoicesEl[i].textContent, questionFourInfo);
             populateQuestionCard(questionFiveInfo);
         }
         else {
-            displayReuslt(buttonChoicesEl[i].textContent, questionFiveInfo);
+            displayResult(buttonChoicesEl[i].textContent, questionFiveInfo);
             populateAllDoneCard();
         }
         buttonCnt++;
@@ -161,7 +161,7 @@ function setTimer() {
         }
     }, 1000);
 }
-function displayReuslt(userChoice, questionInfo) {
+function displayResult(userChoice, questionInfo) {
     showElement(correctOrWrongEl);
     userChoice = userChoice.substring(3); //Gets rid of extra characters, Ex: (1. string => string)
     if (userChoice === questionInfo.answer) {
